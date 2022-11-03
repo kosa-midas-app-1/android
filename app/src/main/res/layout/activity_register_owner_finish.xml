@@ -103,12 +103,14 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
     <RadioButton
+        android:id="@+id/radio_bt3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="340dp"
         android:layout_marginStart="210dp"
         android:text="선택적 근로시간제"/>
     <RadioButton
+        android:id="@+id/radio_bt4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="210dp"

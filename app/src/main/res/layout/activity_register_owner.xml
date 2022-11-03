@@ -100,7 +100,6 @@
         android:layout_marginHorizontal="55dp"
         android:id="@+id/in_Manager_ph"
         android:hint="   전화번호를 입력해주세요."
-        android:inputType="textPassword"
         app:layout_constraintTop_toTopOf="@id/te_Manager_ph"
         app:layout_constraintStart_toStartOf="@id/te_Manager_ph"
         android:layout_marginTop="35dp"

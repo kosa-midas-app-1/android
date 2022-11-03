@@ -19,6 +19,7 @@
             app:layout_constraintEnd_toEndOf="parent"
             android:layout_marginEnd="20dp"/>
         <ImageView
+            android:id="@+id/notificationBtn"
             android:layout_width="36dp"
             android:layout_height="28dp"
             app:layout_constraintTop_toTopOf="parent"
@@ -36,7 +37,7 @@
         app:defaultNavHost="true"
         app:layout_constraintTop_toBottomOf="@id/appBar"
         app:navGraph="@navigation/bottom_nav_graph_owner"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation" />
+        app:layout_constraintBottom_toBottomOf="parent" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"

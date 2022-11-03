@@ -25,7 +25,15 @@
             android:exported="false"/>
         <activity android:name=".presentation.register.RegisterFinishActivity"
             android:exported="false"/>
+        <activity android:name=".presentation.register.RegisterOwnerActivity"
+            android:exported="false"/>
+        <activity android:name=".presentation.register.RegisterOwnerFinishActivity"
+            android:exported="false"/>
         <activity android:name=".presentation.main.MainOwnerActivity"
+            android:exported="false"/>
+        <activity android:name=".presentation.login.LoginActivity"
+            android:exported="false"/>
+        <activity android:name=".presentation.choose_register.ChooseRegisterActivity"
             android:exported="false"/>
         <activity android:name=".presentation.start.StartActivity"
             android:exported="true">

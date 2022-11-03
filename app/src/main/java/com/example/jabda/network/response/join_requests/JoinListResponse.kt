@@ -1,4 +1,4 @@
-package com.example.jabda.network.response.`join-requests`
+package com.example.jabda.network.response.join_requests
 
 import com.google.gson.annotations.SerializedName
 

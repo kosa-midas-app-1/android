@@ -21,9 +21,11 @@
             android:exported="false"/>
         <activity android:name=".presentation.card.CardFragment"
             android:exported="false"/>
-        <activity android:name=".presentation.login.LoginActivity"
+        <activity android:name=".presentation.register.RegisterActivity"
             android:exported="false"/>
-        <activity android:name=".presentation.login.LoginFinishActivity"
+        <activity android:name=".presentation.register.RegisterFinishActivity"
+            android:exported="false"/>
+        <activity android:name=".presentation.main.MainOwnerActivity"
             android:exported="false"/>
         <activity android:name=".presentation.start.StartActivity"
             android:exported="true">

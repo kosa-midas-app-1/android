@@ -17,9 +17,11 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupWithNavController
 import com.example.jabda.R
 import com.example.jabda.databinding.ActivityMainBinding
+import com.example.jabda.network.retrofit.RetrofitClient
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
+
     lateinit var binding: ActivityMainBinding
     private lateinit var nfcPendingIntent: PendingIntent
     private lateinit var nfcAdapter: NfcAdapter

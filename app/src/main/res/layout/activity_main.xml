@@ -7,12 +7,90 @@
     tools:context=".presentation.main.MainActivity">
 
     <TextView
+        android:id="@+id/te_email"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:text="E-mail"
+        app:layout_constraintTop_toTopOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_marginTop="35dp"
+        android:layout_marginStart="50dp"
+        />
+
+    <EditText
+        android:id="@+id/in_email"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:inputType="textEmailAddress"
+        tools:layout_editor_absoluteX="30dp"
+        tools:layout_editor_absoluteY="85dp"
+        app:layout_constraintTop_toTopOf="@id/te_email"
+        app:layout_constraintStart_toStartOf="@id/te_email"
+        android:layout_marginTop="30dp"
+        android:hint="E-mail을 입력해주세요."
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/te_pw"
+        android:text="비밀번호"
+        app:layout_constraintTop_toTopOf="@id/in_email"
+        app:layout_constraintStart_toStartOf="@id/in_email"
+        android:layout_marginTop="65dp"
+        />
+
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/in_pw"
+        android:ems="15"
+        android:inputType="textPassword"
+        android:hint="비밀번호를 입력해주세요."
+        app:layout_constraintTop_toTopOf="@id/te_pw"
+        app:layout_constraintStart_toStartOf="@id/te_pw"
+        android:layout_marginTop="30dp"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/in_repw"
+        android:ems="15"
+        android:inputType="textPassword"
+        android:hint="비밀번호를 한번 더 입력해주세요."
+        app:layout_constraintTop_toTopOf="@id/in_pw"
+        app:layout_constraintStart_toStartOf="@id/in_pw"
+        android:layout_marginTop="50dp"
+        />
+    <TextView
+        android:id="@+id/te_ph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전화번호"
+        app:layout_constraintTop_toTopOf="@id/in_repw"
+        app:layout_constraintStart_toStartOf="@id/in_repw"
+        android:layout_marginTop="65dp"
+        />
+    <EditText
+        android:id="@+id/in_ph"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:ems="15"
+        android:inputType="text"
+        android:hint="전화번호를 입력해주세요."
+        app:layout_constraintTop_toTopOf="@id/te_ph"
+        app:layout_constraintStart_toStartOf="@id/te_ph"
+        android:layout_marginTop="30dp"
+        />
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="45dp"
+        android:text="다음"
+        app:layout_constraintTop_toTopOf="@id/in_ph"
+        android:layout_marginTop="360dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="110dp"
+        android:id="@+id/bu_next"
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

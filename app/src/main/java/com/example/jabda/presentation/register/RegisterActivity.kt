@@ -37,8 +37,12 @@ class RegisterActivity: AppCompatActivity() {
                         if(binding.inPw.text.toString().equals(binding.inRepw.text.toString()) && !binding.inPw.getText().toString().isNullOrEmpty()){ //비밀번호 2개가 다르거나 안적은 경우
 
                             if(patternph.matcher(ph).matches()){//전화번호를 잘못 적거나 안적었을 경우
-                                binding.buNext.setOnClickListener {// 다음 화면으로 이동
-                                    startActivity(Intent(this, RegisterFinishActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+                                binding.buNext.setOnClickListener {
+                                    val intent = Intent(this, RegisterFinishActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION)// 다음 화면으로 이동
+                                    intent.putExtra("email", binding.inEmail.text.toString())
+                                    intent.putExtra("Phone number", binding.inPh.text.toString())
+                                    intent.putExtra("name", binding.inName.text.toString())
+                                    startActivity(intent)
                                     finish()
                                 }
                             }

@@ -18,13 +18,14 @@ class RegisterListAdapter(val itemList: JoinListResponse): RecyclerView.Adapter<
         this.itemClickListener = clickListener
     }
 
-    class ViewHolder(binding: ItemRegisterBinding, itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: JoinListResponse.request) {
-
-        }
-
-        init {
-
+    class ViewHolder(val binding: ItemRegisterBinding, val  itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: JoinListResponse.request, position: Int) {
+            binding.approveBtn.setOnClickListener {
+                itemClickListener.accept(position)
+            }
+            binding.rejectBtn.setOnClickListener {
+                itemClickListener.reject(position)
+            }
         }
     }
 
@@ -39,7 +40,7 @@ class RegisterListAdapter(val itemList: JoinListResponse): RecyclerView.Adapter<
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(itemList.requests[position])
+        holder.bind(itemList.requests[position], position)
     }
 
     override fun getItemCount(): Int = itemList.requests.size

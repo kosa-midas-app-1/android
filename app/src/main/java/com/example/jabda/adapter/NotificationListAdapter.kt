@@ -7,9 +7,10 @@ import com.example.jabda.databinding.ItemNotificationBinding
 import com.example.jabda.network.response.notices.NoticesResponse
 
 class NotificationListAdapter(val itemList: NoticesResponse): RecyclerView.Adapter<NotificationListAdapter.ViewHolder>() {
-    class ViewHolder(binding: ItemNotificationBinding): RecyclerView.ViewHolder(binding.root) {
+    class ViewHolder(val binding: ItemNotificationBinding): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: NoticesResponse.Notice) {
-
+            binding.content.text = item.content
+            binding.date.text = item.createdAt.toString()
         }
     }
 

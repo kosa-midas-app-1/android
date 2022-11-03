@@ -5,7 +5,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.navigation.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
+import com.example.jabda.R
 import com.example.jabda.adapter.MemberListAdapter
 import com.example.jabda.databinding.FragmentManageBinding
 import com.example.jabda.network.response.staff.CommuteListResponse
@@ -32,7 +34,7 @@ class ManageFragment: Fragment() {
                 adapter = MemberListAdapter(response.body()!!)
                 adapter.setOnClickListener(object : MemberListAdapter.onClickListener{
                     override fun detail(position: Int) {
-
+                        activity?.findNavController(R.id.fragment_club).navigate(R.navigation.)
                     }
                 })
                 binding.memberList.adapter = adapter

@@ -21,12 +21,16 @@ class HomeOwnerFragment: Fragment() {
     ): View? {
         binding = FragmentHomeOwnerBinding.inflate(inflater, container, false)
         binding.registerCntLayout.setOnClickListener {
-            activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_homeFragment_to_pendingRegisterFragment)
-            viewModel.setIsNotification(true)
+            if (viewModel.isPending.value != true) {
+                activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_homeFragment_to_pendingRegisterFragment)
+            }
+            viewModel.setIsPending(true)
         }
         binding.homeWorkCntLayout.setOnClickListener {
-            activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_homeFragment_to_pendingHomeWorkFragment)
-            viewModel.setIsNotification(true)
+            if (viewModel.isPending.value != true) {
+                activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_homeFragment_to_pendingHomeWorkFragment)
+            }
+            viewModel.setIsPending(true)
         }
         return binding.root
     }

@@ -65,11 +65,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButtonText("취소")
             .setDeviceCredentialAllowed(false)
             .build()
-        viewModel.isApprove.observe(this) {
-            if (it && viewModel.isMe.value != true) {
-                biometricPrompt.authenticate(promptInfo)
-            }
-        }
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this,
             executor, object : BiometricPrompt.AuthenticationCallback() {
@@ -98,18 +93,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButtonText("취소")
             .setDeviceCredentialAllowed(false)
             .build()
-        viewModel.isNotification.observe(this) {
-            if (it) {
-                binding.bottomNavigation.visibility = View.GONE
-            } else {
-                binding.bottomNavigation.visibility = View.VISIBLE
-            }
-        }
-        viewModel.isApprove.observe(this) {
-            if (it && viewModel.isMe.value != true) {
-                biometricPrompt.authenticate(promptInfo)
-            }
-        }
         binding.notificationBtn.setOnClickListener {
             findNavController(R.id.fragment_club).navigate(R.id.notificationFragment)
             viewModel.setIsNotification(true)
@@ -121,6 +104,25 @@ class MainActivity : AppCompatActivity() {
                     this, 0,
                     Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE
                 )
+            }
+        }
+        viewModel.isDetail.observe(this) {
+            if (it) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else if (viewModel.isNotification.value != true) {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
+        viewModel.isNotification.observe(this) {
+            if (it) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else if (viewModel.isDetail.value != true){
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
+        viewModel.isApprove.observe(this) {
+            if (it && viewModel.isMe.value != true) {
+                biometricPrompt.authenticate(promptInfo)
             }
         }
     }
@@ -169,6 +171,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        viewModel.setIsNotification(false)
+        if (viewModel.isDetail.value == true) {
+            viewModel.setIsDetail(false)
+            return
+        }
+        if (viewModel.isNotification.value == true) {
+            viewModel.setIsNotification(false)
+        }
     }
 }

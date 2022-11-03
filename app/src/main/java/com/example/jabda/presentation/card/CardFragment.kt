@@ -25,7 +25,7 @@ class CardFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentCardBinding.inflate(inflater, container, false)
-        viewModel.setIsCard(true)
+//        viewModel.setIsCard(true)
         Glide.with(this)
             .load("https://static-whale.pstatic.net/main/img_darkmode_v12@2x.png")
             .circleCrop()

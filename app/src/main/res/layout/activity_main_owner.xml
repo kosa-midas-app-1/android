@@ -88,5 +88,5 @@
         app:layout_constraintTop_toTopOf="@+id/rangeSlider"
         app:layout_constraintStart_toStartOf="@id/rangeSlider"
         android:layout_marginStart="25dp"
-        android:layout_marginTop="30dp"
+        android:layout_marginTop="30dp"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

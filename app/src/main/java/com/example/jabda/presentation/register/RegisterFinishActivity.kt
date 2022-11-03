@@ -14,7 +14,7 @@ class RegisterFinishActivity: AppCompatActivity() {
         binding = ActivityRegisterFinishBinding.inflate(layoutInflater)
         setContentView(binding.root)
         binding.buCom.setOnClickListener {
-            startActivity(Intent(this, MainOwnerActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
+            startActivity(Intent(this, MainActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
             finish()
         }
     }

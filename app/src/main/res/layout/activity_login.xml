@@ -25,16 +25,27 @@
         app:layout_constraintStart_toStartOf="parent"
         android:layout_marginTop="300dp"
         />
+
     <EditText
+        android:id="@+id/in_login_email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
-        android:hint="E-mail을 입력하세요."
-        android:id="@+id/in_login_email"
-        app:layout_constraintTop_toTopOf="@id/te_lagin_email"
-        app:layout_constraintStart_toStartOf="@id/te_lagin_email"
         android:layout_marginTop="20dp"
-        />
+        android:background="@drawable/textbox"
+        android:hint="        E-mail을 입력하세요."
+        app:layout_constraintStart_toStartOf="@id/te_lagin_email"
+        app:layout_constraintTop_toTopOf="@id/te_lagin_email" />
+
+    <ImageView
+        android:layout_width="21dp"
+        android:layout_height="21dp"
+        android:src="@drawable/ic_gmail_1"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/in_login_email"
+        app:layout_constraintStart_toStartOf="@+id/te_lagin_email"
+        app:layout_constraintTop_toBottomOf="@+id/te_lagin_email" />
+
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -49,12 +60,22 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
-        android:hint="비밀번호를 입력하세요."
+        android:hint="        비밀번호를 입력하세요."
         android:id="@+id/in_login_pw"
         app:layout_constraintTop_toTopOf="@id/te_lagin_pw"
-        app:layout_constraintStart_toStartOf="@id/te_lagin_pw"
         android:layout_marginTop="20dp"
+        android:background="@drawable/textbox"
         />
+
+    <ImageView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/fa_lock"
+        android:layout_marginStart="10dp"
+        app:layout_constraintBottom_toBottomOf="@+id/in_login_pw"
+        app:layout_constraintStart_toStartOf="@+id/in_login_pw"
+        app:layout_constraintTop_toBottomOf="@+id/te_lagin_pw" />
+
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

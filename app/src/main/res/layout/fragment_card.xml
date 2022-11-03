@@ -95,7 +95,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/ic_gmail"
+        android:src="@drawable/ic_gmail_2"
         app:layout_constraintEnd_toEndOf="@+id/telephone"
         app:layout_constraintStart_toStartOf="@+id/telephone"
         app:layout_constraintTop_toBottomOf="@+id/telephone" />

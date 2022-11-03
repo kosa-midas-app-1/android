@@ -9,7 +9,14 @@
         android:id="@+id/homeFragment"
         android:name="com.example.jabda.presentation.home.HomeOwnerFragment"
         android:label="HomeOwnerFragment"
-        tools:layout="@layout/fragment_home_owner"/>
+        tools:layout="@layout/fragment_home_owner">
+        <action
+            android:id="@+id/action_homeFragment_to_pendingHomeWorkFragment"
+            app:destination="@id/pendingHomeWorkFragment" />
+        <action
+            android:id="@+id/action_homeFragment_to_pendingRegisterFragment"
+            app:destination="@id/pendingRegisterFragment" />
+    </fragment>
     <fragment
         android:id="@+id/resultFragment"
         android:name="com.example.jabda.presentation.result.ResultFragment"
@@ -20,4 +27,19 @@
         android:name="com.example.jabda.presentation.manage.ManageFragment"
         android:label="ManageFragment"
         tools:layout="@layout/fragment_manage"/>
+    <fragment
+        android:id="@+id/notificationFragment"
+        android:name="com.example.jabda.presentation.notification.NotificationFragment"
+        android:label="NotificationFragment"
+        tools:layout="@layout/fragment_notification"/>
+    <fragment
+        android:id="@+id/pendingHomeWorkFragment"
+        android:name="com.example.jabda.presentation.pending_homework.PendingHomeWorkFragment"
+        android:label="PendingHomeWorkFragment"
+        tools:layout="@layout/fragment_pending_homework"/>
+    <fragment
+        android:id="@+id/pendingRegisterFragment"
+        android:name="com.example.jabda.presentation.pending_register.PendingRegisterFragment"
+        android:label="PendingRegisterFragment"
+        tools:layout="@layout/fragment_pending_register"/>
 </navigation>

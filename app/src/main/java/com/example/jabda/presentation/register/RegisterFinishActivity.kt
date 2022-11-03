@@ -18,6 +18,7 @@ class RegisterFinishActivity: AppCompatActivity() {
         Log.d("상태", "onCreate: ${intent.getStringExtra("email")}")
         Log.d("상태", "onCreate: ${intent.getStringExtra("Phone number")}")
         Log.d("상태", "onCreate: ${intent.getStringExtra("name")}")
+        Log.d("상태", "onCreate: ${intent.getStringExtra("password")}")
         binding.buCom.setOnClickListener {
             if (binding.inCp.text.isNullOrEmpty()) {
                 Toast.makeText(this, "회사를 입력해주세요.", Toast.LENGTH_SHORT).show()

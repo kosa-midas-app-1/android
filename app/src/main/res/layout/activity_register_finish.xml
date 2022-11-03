@@ -24,6 +24,7 @@
         app:layout_constraintStart_toStartOf="@id/te_cp"
         android:layout_marginTop="30dp"
         android:background="@drawable/textbox"
+        android:paddingStart="20dp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -46,6 +47,7 @@
         app:layout_constraintStart_toStartOf="@id/te_ps"
         android:layout_marginTop="40dp"
         android:background="@drawable/textbox"
+        android:paddingStart="40dp"
         />
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"

@@ -23,7 +23,8 @@
         app:layout_constraintStart_toStartOf="@+id/te_name"
         app:layout_constraintTop_toTopOf="@+id/te_name"
         android:layout_marginTop="30dp"
-        android:hint="이름을 입력해주세요."
+        android:hint="   이름을 입력해주세요."
+        android:background="@drawable/textbox"
         />
     <TextView
         android:id="@+id/te_email"
@@ -44,7 +45,8 @@
         app:layout_constraintTop_toTopOf="@id/te_email"
         app:layout_constraintStart_toStartOf="@id/te_email"
         android:layout_marginTop="30dp"
-        android:hint="E-mail을 입력해주세요."
+        android:hint="   E-mail을 입력해주세요."
+        android:background="@drawable/textbox"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -63,10 +65,11 @@
         android:id="@+id/in_pw"
         android:ems="15"
         android:inputType="textPassword"
-        android:hint="비밀번호를 입력해주세요."
+        android:hint="   비밀번호를 입력해주세요."
         app:layout_constraintTop_toTopOf="@id/te_pw"
         app:layout_constraintStart_toStartOf="@id/te_pw"
         android:layout_marginTop="30dp"
+        android:background="@drawable/textbox"
         />
     <EditText
         android:layout_width="match_parent"
@@ -74,9 +77,10 @@
         android:id="@+id/in_repw"
         android:layout_marginHorizontal="50dp"
         android:inputType="textPassword"
-        android:hint="비밀번호를 한번 더 입력해주세요."
+        android:hint="   비밀번호를 한번 더 입력해주세요."
         app:layout_constraintTop_toTopOf="@id/in_pw"
         android:layout_marginTop="50dp"
+        android:background="@drawable/textbox"
         />
     <TextView
         android:id="@+id/te_ph"
@@ -93,10 +97,11 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="50dp"
         android:inputType="text"
-        android:hint="전화번호를 입력해주세요."
+        android:hint="   전화번호를 입력해주세요."
         app:layout_constraintTop_toTopOf="@id/te_ph"
         app:layout_constraintStart_toStartOf="@id/te_ph"
         android:layout_marginTop="30dp"
+        android:background="@drawable/textbox"
         />
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"

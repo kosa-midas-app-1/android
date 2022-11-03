@@ -6,8 +6,10 @@ import android.nfc.NfcAdapter
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.viewModels
 import androidx.biometric.BiometricPrompt
+import androidx.core.content.ContextCompat
 import androidx.navigation.findNavController
 import androidx.navigation.fragment.findNavController
 import androidx.navigation.ui.navigateUp
@@ -28,7 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-        initBottomNav()executor = ContextCompat.getMainExecutor(this)
+        initBottomNav()
+        executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this,
             executor, object : BiometricPrompt.AuthenticationCallback() {
                 override fun onAuthenticationError(
@@ -49,13 +52,19 @@ class MainActivity : AppCompatActivity() {
                     super.onAuthenticationFailed()
                 }
             })
-
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("지문 인증")
             .setSubtitle("기기에 등록된 지문을 이용하여 지문을 인증해주세요.")
             .setNegativeButtonText("취소")
             .setDeviceCredentialAllowed(false)
             .build()
+        viewModel.isNotification.observe(this) {
+            if (it) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
         viewModel.isApprove.observe(this) {
             if (it && viewModel.isMe.value != true) {
                 biometricPrompt.authenticate(promptInfo)
@@ -63,6 +72,7 @@ class MainActivity : AppCompatActivity() {
         }
         binding.notificationBtn.setOnClickListener {
             findNavController(R.id.fragment_club).navigate(R.id.notificationFragment)
+            viewModel.setIsNotification(true)
         }
         viewModel.isCard.observe(this) {
             if(it) {
@@ -108,5 +118,10 @@ class MainActivity : AppCompatActivity() {
                 nfcAdapter.disableForegroundDispatch(this)
             }
         }
+    }
+
+    override fun onBackPressed() {
+        super.onBackPressed()
+        viewModel.setIsNotification(false)
     }
 }

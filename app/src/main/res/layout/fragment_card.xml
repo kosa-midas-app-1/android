@@ -39,11 +39,15 @@
 
     <TextView
         android:id="@+id/companyname"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="마이다스 아이티"
+        android:layout_width="150dp"
+        android:layout_height="148dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="50dp"
+        android:text="마이다스아이티"
+        android:textSize="35sp"
+        app:layout_constraintBottom_toBottomOf="@+id/companyimage"
         app:layout_constraintStart_toEndOf="@+id/companyimage"
-        app:layout_constraintTop_toTopOf="@+id/rectangle_1" />
+        app:layout_constraintTop_toTopOf="@+id/companyimage" />
 
 
 

@@ -24,6 +24,7 @@ import com.example.jabda.network.response.managers.OwnerInfoResponse
 import com.example.jabda.network.response.notices.NoticesResponse
 import com.example.jabda.network.response.notices.RecentNoticeResponse
 import com.example.jabda.network.response.staff.*
+import com.example.jabda.network.response.work_home_requests.HomeWorkCountResponse
 import com.example.jabda.network.response.work_home_requests.ListWorkHomeResponse
 import retrofit2.Call
 import retrofit2.http.Body
@@ -188,5 +189,5 @@ interface API {
     fun listWorkHome(): Call<ListWorkHomeResponse>
 
     @GET("/work-home-requests/count")
-    fun homeWorkCount(): Call<CompanyWorkSystemResponse>
+    fun homeWorkCount(): Call<HomeWorkCountResponse>
 }

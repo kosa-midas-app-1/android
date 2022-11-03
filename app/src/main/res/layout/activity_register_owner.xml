@@ -23,7 +23,8 @@
         android:inputType="text"
         app:layout_constraintTop_toTopOf="@id/te_manger_name"
         app:layout_constraintStart_toStartOf="@id/te_manger_name"
-        android:hint="이름을 입력해 주세요."/>
+        android:background="@drawable/textbox"
+        android:hint="   이름을 입력해 주세요."/>
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -39,11 +40,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
         android:id="@+id/in_Manager_email"
-        android:hint="E-mail을 입력해주세요."
+        android:hint="   E-mail을 입력해주세요."
         android:inputType="textEmailAddress"
         app:layout_constraintTop_toTopOf="@id/te_Manager_email"
         app:layout_constraintStart_toStartOf="@id/te_Manager_email"
         android:layout_marginTop="20dp"
+        android:background="@drawable/textbox"
         />
 
     <TextView
@@ -62,7 +64,8 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
         android:id="@+id/in_Manager_pw"
-        android:hint="비밀번호를 입력해주세요."
+        android:hint="   비밀번호를 입력해주세요."
+        android:background="@drawable/textbox"
         android:inputType="textPassword"
         app:layout_constraintTop_toTopOf="@id/te_Manager_pw"
         app:layout_constraintStart_toStartOf="@id/te_Manager_pw"
@@ -73,11 +76,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
         android:id="@+id/in_Manager_repw"
-        android:hint="비밀번호를 한번 더 입력해주세요."
+        android:hint="   비밀번호를 한번 더 입력해주세요."
         android:inputType="textPassword"
         app:layout_constraintTop_toTopOf="@id/in_Manager_pw"
         app:layout_constraintStart_toStartOf="@id/in_Manager_pw"
         android:layout_marginTop="50dp"
+        android:background="@drawable/textbox"
         />
     <TextView
         android:layout_width="match_parent"
@@ -95,11 +99,12 @@
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
         android:id="@+id/in_Manager_ph"
-        android:hint="전화번호를 입력해주세요."
+        android:hint="   전화번호를 입력해주세요."
         android:inputType="textPassword"
         app:layout_constraintTop_toTopOf="@id/te_Manager_ph"
         app:layout_constraintStart_toStartOf="@id/te_Manager_ph"
         android:layout_marginTop="35dp"
+        android:background="@drawable/textbox"
         />
     <androidx.appcompat.widget.AppCompatButton
         android:id="@+id/nextBtn"

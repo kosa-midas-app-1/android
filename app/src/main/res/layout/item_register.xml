@@ -80,6 +80,7 @@
         android:layout_width="wrap_content"
         android:layout_height="40dp"
         android:text="거절"
+        android:id="@+id/rejectBtn"
         android:paddingHorizontal="40dp"
         android:textSize="16sp"
         android:background="@drawable/bg_reject_btn"

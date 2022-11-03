@@ -125,6 +125,9 @@ interface API {
         @Body body: EditMyInfoRequest
     ): Call<Void>
 
+    @PATCH("/staff/attendance")
+    fun attend(): Call<Void>
+
     @GET("/join-requests")
     fun joinList(): Call<JoinListResponse>
 

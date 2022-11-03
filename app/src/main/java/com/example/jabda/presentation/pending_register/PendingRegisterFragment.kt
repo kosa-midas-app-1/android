@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jabda.adapter.RegisterListAdapter
 import com.example.jabda.databinding.FragmentPendingRegisterBinding
 import com.example.jabda.network.response.join_requests.JoinListResponse
+import com.example.jabda.network.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PendingRegisterFragment: Fragment() {
     lateinit var binding: FragmentPendingRegisterBinding
@@ -19,17 +23,29 @@ class PendingRegisterFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPendingRegisterBinding.inflate(inflater, container, false)
-        val item = JoinListResponse.request("", "", "", "", "")
-        adapter = RegisterListAdapter(JoinListResponse(listOf(item, item, item, item)))
-        adapter.setOnClickListener(object : RegisterListAdapter.onClickListener {
-            override fun accept(position: Int) {
+        RetrofitClient.api.joinList().enqueue(object : Callback<JoinListResponse> {
+            override fun onResponse(
+                call: Call<JoinListResponse>,
+                response: Response<JoinListResponse>
+            ) {
+                adapter = RegisterListAdapter(response.body()!!)
+                adapter.setOnClickListener(object : RegisterListAdapter.onClickListener {
+                    override fun accept(position: Int) {
+                        RetrofitClient.api.approveJoin(response.body()?.requests?.get(position)?.id!!)
+                    }
+
+                    override fun reject(position: Int) {
+                        RetrofitClient.api.rejectJoin(response.body()?.requests?.get(position)?.id!!)
+                    }
+                })
+                binding.registerList.adapter = adapter
+                binding.registerList.layoutManager = LinearLayoutManager(context)
             }
 
-            override fun reject(position: Int) {
+            override fun onFailure(call: Call<JoinListResponse>, t: Throwable) {
             }
+
         })
-        binding.registerList.adapter = adapter
-        binding.registerList.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 }

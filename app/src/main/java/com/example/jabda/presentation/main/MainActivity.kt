@@ -18,10 +18,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.jabda.R
 import com.example.jabda.databinding.ActivityMainBinding
 import com.example.jabda.network.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var binding: ActivityMainBinding
     private lateinit var nfcPendingIntent: PendingIntent
     private lateinit var nfcAdapter: NfcAdapter
@@ -136,6 +138,13 @@ class MainActivity : AppCompatActivity() {
         super.onNewIntent(intent)
         viewModel.isCard.observe(this) {
             if (it) {
+                RetrofitClient.api.attend().enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                    }
+                })
             }
         }
     }

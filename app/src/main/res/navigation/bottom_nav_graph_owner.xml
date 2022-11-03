@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/bottom_nav_graph_owner"
+    app:startDestination="@id/homeFragment">
+
+    <fragment
+        android:id="@+id/homeFragment"
+        android:name="com.example.jabda.presentation.home.HomeOwnerFragment"
+        android:label="HomeOwnerFragment"
+        tools:layout="@layout/fragment_home_owner"/>
+    <fragment
+        android:id="@+id/resultFragment"
+        android:name="com.example.jabda.presentation.result.ResultFragment"
+        android:label="ResultFragment"
+        tools:layout="@layout/fragment_result"/>
+    <fragment
+        android:id="@+id/manageFragment"
+        android:name="com.example.jabda.presentation.manage.ManageFragment"
+        android:label="ManageFragment"
+        tools:layout="@layout/fragment_manage"/>
+</navigation>

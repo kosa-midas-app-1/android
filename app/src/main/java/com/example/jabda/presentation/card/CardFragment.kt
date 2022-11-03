@@ -26,5 +26,6 @@ class CardFragment: Fragment() {
         binding = FragmentCardBinding.inflate(inflater, container, false)
         viewModel.setIsCard(true)
         return binding.root
+
     }
 }

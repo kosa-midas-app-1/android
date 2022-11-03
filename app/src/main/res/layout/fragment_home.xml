@@ -16,11 +16,12 @@
         android:layout_marginTop="40dp"
         android:layout_marginStart="35dp"/>
     
-    <View
+    <ProgressBar
+        style="@style/Widget.AppCompat.ProgressBar.Horizontal"
         android:id="@+id/weekTimeProgress"
         android:layout_width="match_parent"
         android:layout_height="25dp"
-        android:background="#33000000"
+        android:progressDrawable="@drawable/bg_progressbar"
         android:layout_marginHorizontal="35dp"
         app:layout_constraintTop_toBottomOf="@id/weekTimeTxt"
         android:layout_marginTop="5dp"/>
@@ -138,34 +139,36 @@
     <View
         android:layout_width="300dp"
         android:layout_height="200dp"
-        android:background="#808080"
+        android:background="#D9D9D9"
         android:id="@+id/anm_box"
-        app:layout_constraintTop_toTopOf="@+id/anm"
+        app:layout_constraintTop_toBottomOf="@+id/anm"
         app:layout_constraintStart_toStartOf="@+id/anm"
         android:layout_marginTop="40dp"
         />
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:id="@+id/enm_te"
+        android:id="@+id/text"
         android:textColor="#000000"
         android:text="공지다아ㅏ아아ㅏ"
         android:textSize="20dp"
-        app:layout_constraintTop_toTopOf="@+id/anm"
-        app:layout_constraintStart_toStartOf="@+id/anm"
-        android:layout_marginTop="50dp"
-        android:layout_marginStart="45dp"
+        app:layout_constraintTop_toTopOf="@+id/anm_box"
+        app:layout_constraintStart_toStartOf="@+id/anm_box"
+        android:layout_marginTop="10dp"
+        android:layout_marginStart="15dp"
+        app:layout_constraintEnd_toEndOf="@id/anm_box"
+        android:layout_marginEnd="15dp"
         />
     <TextView
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/day"
         android:text="2022-11-04"
         android:textSize="20dp"
-        app:layout_constraintTop_toTopOf="@+id/enm_te"
-        app:layout_constraintStart_toStartOf="@+id/enm_te"
-        android:layout_marginTop="160dp"
-        android:layout_marginStart="220dp"
+        android:layout_marginEnd="10dp"
+        android:layout_marginBottom="10dp"
+        app:layout_constraintEnd_toEndOf="@id/anm_box"
+        app:layout_constraintBottom_toBottomOf="@id/anm_box"
         />
 
 

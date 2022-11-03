@@ -9,6 +9,10 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jabda.adapter.HomeWorkListAdapter
 import com.example.jabda.databinding.FragmentPendingHomeworkBinding
 import com.example.jabda.network.response.work_home_requests.ListWorkHomeResponse
+import com.example.jabda.network.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 
 class PendingHomeWorkFragment: Fragment() {
     lateinit var binding: FragmentPendingHomeworkBinding
@@ -19,18 +23,28 @@ class PendingHomeWorkFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPendingHomeworkBinding.inflate(inflater, container, false)
-        val item = ListWorkHomeResponse.Staff("", "", "", "", "", "", "")
-        adapter = HomeWorkListAdapter(ListWorkHomeResponse(listOf(item, item, item, item, item)))
-        adapter.setOnClickListener(object : HomeWorkListAdapter.onClickListener {
-            override fun accept(position: Int) {
+        RetrofitClient.api.listWorkHome().enqueue(object : Callback<ListWorkHomeResponse> {
+            override fun onResponse(
+                call: Call<ListWorkHomeResponse>,
+                response: Response<ListWorkHomeResponse>
+            ) {
+                adapter = HomeWorkListAdapter(response.body()!!)
+                adapter.setOnClickListener(object : HomeWorkListAdapter.onClickListener {
+                    override fun accept(position: Int) {
+                        RetrofitClient.api.approveHomeWork(response.body()?.staff?.get(position)?.id!!)
+                    }
+
+                    override fun reject(position: Int) {
+                        RetrofitClient.api.rejectHomeWork(response.body()?.staff?.get(position)?.id!!)
+                    }
+                })
+                binding.homeworkList.adapter = adapter
+                binding.homeworkList.layoutManager = LinearLayoutManager(context)
             }
 
-            override fun reject(position: Int) {
+            override fun onFailure(call: Call<ListWorkHomeResponse>, t: Throwable) {
             }
-
         })
-        binding.homeworkList.adapter = adapter
-        binding.homeworkList.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 }

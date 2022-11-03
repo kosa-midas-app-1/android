@@ -19,9 +19,11 @@ class RegisterOwnerActivity: AppCompatActivity() {
 
             val patternEmail: Pattern = Patterns.EMAIL_ADDRESS
             val patternph : Pattern = Patterns.PHONE
-            val email : String = binding.inManagerEmail.text.toString()
-            val ph : String = binding.inManagerPh.text.toString()
-            if (binding.inManagerName.getText().isNullOrEmpty()) { //이름이 공백일 경우
+            val email : String = binding.inManagerEmail.text.toString() // Email 저장
+            val ph : String = binding.inManagerPh.text.toString() // 전화번호 저장
+            val name : String = binding.inManagerName.text.toString() // 이름 저장
+            val pw : String = binding.inManagerPw.text.toString() // 비밀범호 저장
+            if (binding.inManagerName.text.isNullOrEmpty()) { //이름이 공백일 경우
                 Log.d("상태","이름 공백")
                 Toast.makeText(this, "이름을 입력해주세요.", Toast.LENGTH_SHORT).show() // 앱이 Android 12(API 수준 31) 이상을 타겟팅한다면 토스트 메시지는 텍스트 두 줄로 제한되고 텍스트 옆에 애플리케이션 아이콘이 표시
 

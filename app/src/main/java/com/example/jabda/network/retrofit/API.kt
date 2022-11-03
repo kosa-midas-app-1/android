@@ -10,16 +10,21 @@ import com.example.jabda.network.request.companies.EditCompanyInfoRequest
 import com.example.jabda.network.request.managers.EditInfoRequest
 import com.example.jabda.network.request.notices.NoticeRequest
 import com.example.jabda.network.request.staff.EditMemberInfoRequest
+import com.example.jabda.network.request.staff.EditMyInfoRequest
 import com.example.jabda.network.response.join_requests.JoinListResponse
 import com.example.jabda.network.response.auth.LoginResponse
 import com.example.jabda.network.response.auth.RefreshResponse
 import com.example.jabda.network.response.auth.RegisterResponse
 import com.example.jabda.network.response.companies.CompaniesResponse
+import com.example.jabda.network.response.companies.CompanyWorkSystemResponse
 import com.example.jabda.network.response.companies.MyCompanyResponse
-import com.example.jabda.network.response.managers.MyInfoResponse
+import com.example.jabda.network.response.join_requests.IsApproveResponse
+import com.example.jabda.network.response.join_requests.JoinCountResponse
+import com.example.jabda.network.response.managers.OwnerInfoResponse
 import com.example.jabda.network.response.notices.NoticesResponse
-import com.example.jabda.network.response.staff.CommuteListResponse
-import com.example.jabda.network.response.staff.DetailStaffResponse
+import com.example.jabda.network.response.notices.RecentNoticeResponse
+import com.example.jabda.network.response.staff.*
+import com.example.jabda.network.response.work_home_requests.ListWorkHomeResponse
 import retrofit2.Call
 import retrofit2.http.Body
 import retrofit2.http.DELETE
@@ -54,7 +59,7 @@ interface API {
     ): Call<Void>
 
     @GET("/managers")
-    fun getInfo(): Call<MyInfoResponse>
+    fun getInfo(): Call<OwnerInfoResponse>
 
     @PATCH("/companies/work-time")
     fun setWorkTime(
@@ -97,6 +102,29 @@ interface API {
         @Path("staff-id") staffId: String
     ): Call<Void>
 
+    @GET("/staff/average")
+    fun timeAverage(): Call<TimeAverageResponse>
+
+    @GET("/staff/timeline")
+    fun timeLine(): Call<TimeLineResponse>
+
+    @GET("/staff/today")
+    fun todayStaff(): Call<TodayStaffResponse>
+
+    @GET("/staff/work-time")
+    fun myWorkTime(): Call<MyWorkTimeResponse>
+
+    @GET("/staff/work-time/week")
+    fun myWorkTimeWeek(): Call<MyWorkTimeWeekResponse>
+
+    @GET("/staff/myself")
+    fun myInfo(): Call<MyInfoResponse>
+
+    @PATCH("/staff/myself")
+    fun editMyInfo(
+        @Body body: EditMyInfoRequest
+    ): Call<Void>
+
     @GET("/join-requests")
     fun joinList(): Call<JoinListResponse>
 
@@ -115,6 +143,12 @@ interface API {
         @Path("company-id") companyId: String
     ): Call<Void>
 
+    @GET("/join-requests/approve-status")
+    fun isApprove(): Call<IsApproveResponse>
+
+    @GET("/join-requests/count")
+    fun joinCount(): Call<JoinCountResponse>
+
     @POST("/notices")
     fun writeNotice(
         @Body body: NoticeRequest
@@ -128,6 +162,9 @@ interface API {
 
     @GET("/notices")
     fun listNotice(): Call<NoticesResponse>
+
+    @GET("/notices/first")
+    fun recentNotice(): Call<RecentNoticeResponse>
 
     @DELETE("/work-home-requests/{staff-id}/approve")
     fun approveHomeWork(
@@ -143,4 +180,10 @@ interface API {
     fun requestHomeWork(
         @Body body: HomeWorkRequest
     ): Call<Void>
+
+    @GET("/work-home-requests")
+    fun listWorkHome(): Call<ListWorkHomeResponse>
+
+    @GET("/work-home-requests/count")
+    fun homeWorkCount(): Call<CompanyWorkSystemResponse>
 }

@@ -25,6 +25,7 @@ class HomeOwnerFragment: Fragment() {
                 activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_homeFragment_to_pendingRegisterFragment)
             }
             viewModel.setIsPending(true)
+
         }
         binding.homeWorkCntLayout.setOnClickListener {
             if (viewModel.isPending.value != true) {

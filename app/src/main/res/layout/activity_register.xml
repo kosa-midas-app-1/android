@@ -25,6 +25,7 @@
         android:layout_marginTop="30dp"
         android:hint="   이름을 입력해주세요."
         android:background="@drawable/textbox"
+        android:paddingStart="40dp"
         />
     <TextView
         android:id="@+id/te_email"
@@ -47,6 +48,7 @@
         android:layout_marginTop="30dp"
         android:hint="   E-mail을 입력해주세요."
         android:background="@drawable/textbox"
+        android:paddingStart="40dp"
         />
     <TextView
         android:layout_width="wrap_content"
@@ -70,6 +72,7 @@
         app:layout_constraintStart_toStartOf="@id/te_pw"
         android:layout_marginTop="30dp"
         android:background="@drawable/textbox"
+        android:paddingStart="40dp"
         />
     <EditText
         android:layout_width="match_parent"
@@ -81,6 +84,7 @@
         app:layout_constraintTop_toTopOf="@id/in_pw"
         android:layout_marginTop="50dp"
         android:background="@drawable/textbox"
+        android:paddingStart="40dp"
         />
     <TextView
         android:id="@+id/te_ph"
@@ -102,6 +106,7 @@
         app:layout_constraintStart_toStartOf="@id/te_ph"
         android:layout_marginTop="30dp"
         android:background="@drawable/textbox"
+        android:paddingStart="40dp"
         />
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"

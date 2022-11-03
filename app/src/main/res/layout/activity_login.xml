@@ -31,6 +31,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginHorizontal="55dp"
+        android:paddingStart="40dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/textbox"
         android:hint="        E-mail을 입력하세요."
@@ -64,6 +65,7 @@
         android:id="@+id/in_login_pw"
         app:layout_constraintTop_toTopOf="@id/te_lagin_pw"
         android:layout_marginTop="20dp"
+        android:paddingStart="40dp"
         android:background="@drawable/textbox"
         />
 

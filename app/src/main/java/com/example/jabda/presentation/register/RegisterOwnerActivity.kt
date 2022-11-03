@@ -40,6 +40,10 @@ class RegisterOwnerActivity: AppCompatActivity() {
                                 binding.nextBtn.setOnClickListener {// 다음 화면으로 이동
                                     startActivity(Intent(this, RegisterOwnerFinishActivity::class.java).addFlags(Intent.FLAG_ACTIVITY_NO_ANIMATION))
                                     finish()
+                                    intent.putExtra("password",binding.inManagerPw.text.toString())
+                                    intent.putExtra("email",binding.inManagerEmail.text.toString())
+                                    intent.putExtra("name",binding.inManagerName.text.toString())
+                                    intent.putExtra("phone_number",binding.inManagerPh.text.toString())
                                 }
                             }
                             else{

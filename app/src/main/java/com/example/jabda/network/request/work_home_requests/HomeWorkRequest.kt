@@ -1,4 +1,4 @@
-package com.example.jabda.network.request.`work-home-requests`
+package com.example.jabda.network.request.work_home_requests
 
 import com.google.gson.annotations.SerializedName
 

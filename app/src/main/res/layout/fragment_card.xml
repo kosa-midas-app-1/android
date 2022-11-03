@@ -10,7 +10,9 @@
     <View
         android:id="@+id/rectangle_1"
         android:layout_width="334dp"
-        android:layout_height="610dp"
+        android:layout_height="580dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="20dp"
         android:background="@drawable/rectangle_1"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
@@ -93,7 +95,7 @@
         android:layout_width="25dp"
         android:layout_height="25dp"
         android:layout_marginTop="10dp"
-        android:src="@drawable/ic_gmail"
+        android:src="@drawable/ic_gmail_2"
         app:layout_constraintEnd_toEndOf="@+id/telephone"
         app:layout_constraintStart_toStartOf="@+id/telephone"
         app:layout_constraintTop_toBottomOf="@+id/telephone" />

@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "433738657129",
+    "project_id": "jabda-2c016",
+    "storage_bucket": "jabda-2c016.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:433738657129:android:71c2cf0b601f9e37a321f8",
+        "android_client_info": {
+          "package_name": "com.example.jabda"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "433738657129-otuht9vogjo2paqpai87hg9p1fsae6sa.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.jabda",
+            "certificate_hash": "cdf8391f4bc3778704dfa6de555491e988b79b97"
+          }
+        },
+        {
+          "client_id": "433738657129-9g9dk1ls6e30gpp7iobdomu7bffrabjb.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBNR7YVRRAiK6KXihM2DmTlz9yPs1sZQVY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "433738657129-9g9dk1ls6e30gpp7iobdomu7bffrabjb.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

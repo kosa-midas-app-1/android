@@ -21,6 +21,10 @@
             android:exported="false"/>
         <activity android:name=".presentation.card.CardActivity"
             android:exported="false"/>
+        <activity android:name=".presentation.login.LoginActivity"
+            android:exported="false"/>
+        <activity android:name=".presentation.login.LoginFinishActivity"
+            android:exported="false"/>
         <activity android:name=".presentation.start.StartActivity"
             android:exported="true">
             <intent-filter>

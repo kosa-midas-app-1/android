@@ -111,7 +111,7 @@
         android:layout_height="wrap_content"
         android:layout_marginStart="210dp"
         android:layout_marginTop="-10dp"
-        android:text="시차출퇴근제"
+        android:text="시차출퇴근제"/>
 </RadioGroup>
     <androidx.appcompat.widget.AppCompatButton
         android:layout_width="match_parent"

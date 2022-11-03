@@ -1,6 +1,6 @@
 package com.example.jabda.network.retrofit
 
-import com.example.jabda.network.request.`work-home-requests`.HomeWorkRequest
+import com.example.jabda.network.request.work_home_requests.HomeWorkRequest
 import com.example.jabda.network.request.auth.LoginRequest
 import com.example.jabda.network.request.auth.RegisterOwnerRequest
 import com.example.jabda.network.request.auth.RegisterOwnerResponse
@@ -10,7 +10,7 @@ import com.example.jabda.network.request.companies.EditCompanyInfoRequest
 import com.example.jabda.network.request.managers.EditInfoRequest
 import com.example.jabda.network.request.notices.NoticeRequest
 import com.example.jabda.network.request.staff.EditMemberInfoRequest
-import com.example.jabda.network.response.`join-requests`.JoinListResponse
+import com.example.jabda.network.response.join_requests.JoinListResponse
 import com.example.jabda.network.response.auth.LoginResponse
 import com.example.jabda.network.response.auth.RefreshResponse
 import com.example.jabda.network.response.auth.RegisterResponse

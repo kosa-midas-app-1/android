@@ -42,9 +42,11 @@
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:defaultNavHost="true"
+        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation"
         app:layout_constraintTop_toBottomOf="@id/appBar"
+        app:layout_constraintVertical_bias="0.0"
         app:navGraph="@navigation/bottom_nav_graph"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_navigation" />
+        tools:layout_editor_absoluteX="0dp" />
 
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_navigation"
@@ -57,4 +59,108 @@
         app:itemIconTint="@drawable/sc_bottom_icon"
         app:layout_constraintBottom_toBottomOf="parent"
         app:menu="@menu/bottom_nav_item" />
+
+    <com.google.android.material.slider.RangeSlider
+        android:id="@+id/rangeSlider"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+
+        android:stepSize="1.0"
+        android:valueFrom="0.0"
+        android:valueTo="24.0"
+        android:layout_marginHorizontal="20dp"
+        app:values="@array/initial_slider_values"
+        app:layout_constraintTop_toTopOf="@+id/fragment_club"
+        android:layout_marginTop="177dp"
+        />
+    <com.google.android.material.slider.RangeSlider
+    android:id="@+id/rangeSlider_2"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:stepSize="1.0"
+    android:valueFrom="0.0"
+    android:valueTo="24.0"
+    android:layout_marginHorizontal="20dp"
+    app:values="@array/initial_slider_values2"
+    app:layout_constraintTop_toTopOf="@+id/fragment_club"
+    android:layout_marginTop="177dp"
+    />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/am8_pm6"
+        android:text="오전8시                           오후6시"
+        app:layout_constraintTop_toTopOf="@+id/rangeSlider_2"
+        app:layout_constraintStart_toStartOf="@+id/rangeSlider_2"
+        android:layout_marginTop="45dp"
+        android:layout_marginStart="130dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/qu_time"
+        android:text="오늘 근무 시간:10시간"
+        app:layout_constraintTop_toTopOf="@+id/am8_pm6"
+        app:layout_constraintStart_toStartOf="@+id/am8_pm6"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="60dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/ex_sh"
+        android:text="2시간 초과"
+        app:layout_constraintTop_toTopOf="@+id/am8_pm6"
+        app:layout_constraintStart_toStartOf="@+id/am8_pm6"
+        android:layout_marginTop="30dp"
+        android:layout_marginStart="270dp"
+        android:textColor="#ff0000 "
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/anm"
+        android:text="공지사항"
+        android:textStyle="bold"
+        android:textSize="30dp"
+        android:textColor="#000000"
+        app:layout_constraintTop_toTopOf="@+id/qu_time"
+        app:layout_constraintStart_toStartOf="@+id/qu_time"
+        android:layout_marginTop="40dp"
+        android:layout_marginStart="35dp"
+        />
+    <View
+        android:layout_width="300dp"
+        android:layout_height="200dp"
+        android:background="#808080"
+        android:id="@+id/anm_box"
+        app:layout_constraintTop_toTopOf="@+id/anm"
+        app:layout_constraintStart_toStartOf="@+id/anm"
+        android:layout_marginTop="40dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/enm_te"
+        android:textColor="#000000"
+        android:text="공지다아ㅏ아아ㅏ"
+        android:textSize="20dp"
+        app:layout_constraintTop_toTopOf="@+id/anm"
+        app:layout_constraintStart_toStartOf="@+id/anm"
+        android:layout_marginTop="50dp"
+        android:layout_marginStart="45dp"
+        />
+    <TextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/day"
+        android:text="2022-11-04"
+        android:textSize="20dp"
+        app:layout_constraintTop_toTopOf="@+id/enm_te"
+        app:layout_constraintStart_toStartOf="@+id/enm_te"
+        android:layout_marginTop="160dp"
+        android:layout_marginStart="220dp"
+        />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

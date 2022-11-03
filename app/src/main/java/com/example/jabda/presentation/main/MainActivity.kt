@@ -87,6 +87,7 @@ class MainActivity : AppCompatActivity() {
                     super.onAuthenticationFailed()
                 }
             })
+
         promptInfo = BiometricPrompt.PromptInfo.Builder()
             .setTitle("지문 인증")
             .setSubtitle("기기에 등록된 지문을 이용하여 지문을 인증해주세요.")

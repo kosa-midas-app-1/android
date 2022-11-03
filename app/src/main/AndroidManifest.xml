@@ -19,7 +19,7 @@
         <activity
             android:name=".presentation.main.MainActivity"
             android:exported="false"/>
-        <activity android:name=".presentation.card.CardActivity"
+        <activity android:name=".presentation.card.CardFragment"
             android:exported="false"/>
         <activity android:name=".presentation.login.LoginActivity"
             android:exported="false"/>

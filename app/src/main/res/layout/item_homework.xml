@@ -1,6 +1,114 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginHorizontal="10dp"/>
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginHorizontal="10dp"/>
+
+    <TextView
+        android:id="@+id/nameTxt"
+        android:text="홍길동"
+        android:textColor="@color/black"
+        android:textSize="22sp"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="14dp"
+        android:layout_marginStart="28dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"/>
+    <TextView
+        android:id="@+id/positionTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="15sp"
+        app:layout_constraintStart_toEndOf="@id/nameTxt"
+        app:layout_constraintBottom_toBottomOf="@id/nameTxt"
+        android:textColor="@color/black"
+        android:text="대표이사"
+        android:layout_marginStart="8dp"/>
+
+    <TextView
+        android:id="@+id/phoneTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="전화번호 : 010-1234-5678"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/nameTxt"
+        app:layout_constraintStart_toStartOf="@id/nameTxt"
+        android:layout_marginTop="8dp"/>
+
+
+    <TextView
+        android:id="@+id/emailTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="이메일 : ghdrlfehd@gmail.com"
+        android:textColor="@color/black"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/phoneTxt"
+        app:layout_constraintStart_toStartOf="@id/nameTxt"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="10dp"/>
+
+    <androidx.appcompat.widget.AppCompatButton
+        android:id="@+id/approveBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="승인"
+        android:paddingHorizontal="40dp"
+        android:textSize="16sp"
+        android:background="@drawable/bg_approve_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="15dp"/>
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="wrap_content"
+        android:layout_height="40dp"
+        android:text="거절"
+        android:paddingHorizontal="40dp"
+        android:textSize="16sp"
+        android:background="@drawable/bg_reject_btn"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@id/approveBtn"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="15dp"/>
+
+    <TextView
+        android:id="@+id/dateTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="날짜: 2022-10-22"
+        app:layout_constraintTop_toBottomOf="@id/emailTxt"
+        app:layout_constraintStart_toStartOf="@id/emailTxt"
+        android:textColor="@color/black"
+        android:layout_marginTop="14dp"/>
+    <TextView
+        android:id="@+id/reasonTxt"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="16sp"
+        android:text="사유 : 제가 진짜 급한일이있어서.."
+        app:layout_constraintTop_toBottomOf="@id/dateTxt"
+        app:layout_constraintStart_toStartOf="@id/emailTxt"
+        android:textColor="@color/black"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginBottom="9dp"
+        android:layout_marginTop="3dp"/>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

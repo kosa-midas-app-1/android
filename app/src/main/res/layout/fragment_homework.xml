@@ -11,8 +11,10 @@
         android:layout_marginBottom="280dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.508"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.504" />
 
     <TextView
         android:id="@+id/date"
@@ -42,6 +44,20 @@
         android:layout_width="236dp"
         android:layout_height="57dp"
         android:text="재택근무 요청"
+        android:textSize="18sp"
+        android:background="@drawable/textbox"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/rectangle_1" />
+
+
+
+    <TextView
+        android:layout_width="236dp"
+        android:layout_height="57dp"
+        android:text="재택근무 요청"
+        android:gravity="center"
         android:textSize="18sp"
         android:background="@drawable/textbox"
         app:layout_constraintBottom_toBottomOf="parent"

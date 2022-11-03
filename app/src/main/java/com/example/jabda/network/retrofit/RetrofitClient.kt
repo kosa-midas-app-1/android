@@ -11,7 +11,7 @@ class RetrofitClient {
 
 
     companion object {
-        private const val url = "3.37.129.120:8080"
+        private const val url = "http://3.37.129.120:8080"
         var server: Retrofit = Retrofit.Builder()
             .baseUrl(url)
             .client(provideOkHttpClient(AppInterceptor()))

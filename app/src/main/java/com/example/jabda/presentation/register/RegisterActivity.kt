@@ -42,6 +42,7 @@ class RegisterActivity: AppCompatActivity() {
                                     intent.putExtra("email", binding.inEmail.text.toString())
                                     intent.putExtra("Phone number", binding.inPh.text.toString())
                                     intent.putExtra("name", binding.inName.text.toString())
+                                    intent.putExtra("password",binding.inPw.text.toString())
                                     startActivity(intent)
                                     finish()
                                 }

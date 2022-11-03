@@ -11,6 +11,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
+import com.bumptech.glide.Glide
 import com.example.jabda.databinding.FragmentCardBinding
 import com.example.jabda.presentation.main.MainViewModel
 
@@ -25,6 +26,11 @@ class CardFragment: Fragment() {
     ): View? {
         binding = FragmentCardBinding.inflate(inflater, container, false)
         viewModel.setIsCard(true)
+        Glide.with(this)
+            .load("https://static-whale.pstatic.net/main/img_darkmode_v12@2x.png")
+            .circleCrop()
+            .into(binding.companyimage)
         return binding.root
+
     }
 }

@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
-    <item android:id="@+id/homeWorkFragment"
+    <item android:id="@+id/manageFragment"
         android:title="재택"
-        android:icon="@drawable/ic_homework"/>
+        android:icon="@drawable/ic_manage"/>
     <item android:id="@+id/homeFragment"
         android:title="홈"
         android:icon="@drawable/ic_home"/>
-    <item android:id="@+id/cardFragment"
+    <item android:id="@+id/resultFragment"
         android:title="사원증"
-        android:icon="@drawable/ic_card"/>
+        android:icon="@drawable/ic_result"/>
 </menu>

@@ -7,6 +7,7 @@ import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.activityViewModels
 import com.example.jabda.databinding.FragmentHomeBinding
+import com.example.jabda.network.retrofit.RetrofitClient
 import com.example.jabda.presentation.main.MainViewModel
 
 class HomeFragment: Fragment() {

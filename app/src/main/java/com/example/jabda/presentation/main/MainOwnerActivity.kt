@@ -20,7 +20,6 @@ class MainOwnerActivity: AppCompatActivity() {
         setContentView(binding.root)
         initBottomNav()
         binding.notificationBtn.setOnClickListener {
-            Log.d("안녕", "onCreate: ${viewModel.isNotification.value}")
             if(viewModel.isNotification.value != true) {
                 findNavController(R.id.fragment_club).navigate(R.id.notificationFragment)
             }

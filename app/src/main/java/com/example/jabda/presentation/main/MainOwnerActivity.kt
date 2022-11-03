@@ -19,6 +19,7 @@ class MainOwnerActivity: AppCompatActivity() {
         binding = ActivityMainOwnerBinding.inflate(layoutInflater)
         setContentView(binding.root)
         initBottomNav()
+        viewModel.setIsOwner(true)
         binding.notificationBtn.setOnClickListener {
             if(viewModel.isNotification.value != true) {
                 findNavController(R.id.fragment_club).navigate(R.id.notificationFragment)

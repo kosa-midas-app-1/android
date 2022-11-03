@@ -10,7 +10,11 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.jabda.adapter.NotificationListAdapter
 import com.example.jabda.databinding.FragmentNotificationBinding
 import com.example.jabda.network.response.notices.NoticesResponse
+import com.example.jabda.network.retrofit.RetrofitClient
 import com.example.jabda.presentation.main.MainOwnerViewModel
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.*
 
 class NotificationFragment: Fragment() {
@@ -26,10 +30,20 @@ class NotificationFragment: Fragment() {
         if (viewModel.isOwner.value == true) {
             binding.plusBtn.visibility = View.VISIBLE
         }
-        val item = NoticesResponse.Notice("", Date())
-        adapter = NotificationListAdapter(NoticesResponse(listOf(item, item, item, item, item)))
-        binding.notificationList.adapter = adapter
-        binding.notificationList.layoutManager = LinearLayoutManager(context)
+        RetrofitClient.api.listNotice().enqueue(object : Callback<NoticesResponse> {
+            override fun onResponse(
+                call: Call<NoticesResponse>,
+                response: Response<NoticesResponse>
+            ) {
+                adapter = NotificationListAdapter(response.body()!!)
+                binding.notificationList.adapter = adapter
+                binding.notificationList.layoutManager = LinearLayoutManager(context)
+            }
+
+            override fun onFailure(call: Call<NoticesResponse>, t: Throwable) {
+            }
+
+        })
         return binding.root
     }
 }

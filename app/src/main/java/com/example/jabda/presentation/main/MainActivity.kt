@@ -18,10 +18,12 @@ import androidx.navigation.ui.setupWithNavController
 import com.example.jabda.R
 import com.example.jabda.databinding.ActivityMainBinding
 import com.example.jabda.network.retrofit.RetrofitClient
+import retrofit2.Call
+import retrofit2.Callback
+import retrofit2.Response
 import java.util.concurrent.Executor
 
 class MainActivity : AppCompatActivity() {
-
     lateinit var binding: ActivityMainBinding
     private lateinit var nfcPendingIntent: PendingIntent
     private lateinit var nfcAdapter: NfcAdapter
@@ -63,11 +65,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButtonText("취소")
             .setDeviceCredentialAllowed(false)
             .build()
-        viewModel.isApprove.observe(this) {
-            if (it && viewModel.isMe.value != true) {
-                biometricPrompt.authenticate(promptInfo)
-            }
-        }
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this,
             executor, object : BiometricPrompt.AuthenticationCallback() {
@@ -96,18 +93,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButtonText("취소")
             .setDeviceCredentialAllowed(false)
             .build()
-        viewModel.isNotification.observe(this) {
-            if (it) {
-                binding.bottomNavigation.visibility = View.GONE
-            } else {
-                binding.bottomNavigation.visibility = View.VISIBLE
-            }
-        }
-        viewModel.isApprove.observe(this) {
-            if (it && viewModel.isMe.value != true) {
-                biometricPrompt.authenticate(promptInfo)
-            }
-        }
         binding.notificationBtn.setOnClickListener {
             findNavController(R.id.fragment_club).navigate(R.id.notificationFragment)
             viewModel.setIsNotification(true)
@@ -119,6 +104,25 @@ class MainActivity : AppCompatActivity() {
                     this, 0,
                     Intent(this, javaClass).addFlags(Intent.FLAG_ACTIVITY_SINGLE_TOP), PendingIntent.FLAG_IMMUTABLE
                 )
+            }
+        }
+        viewModel.isDetail.observe(this) {
+            if (it) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else if (viewModel.isNotification.value != true) {
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
+        viewModel.isNotification.observe(this) {
+            if (it) {
+                binding.bottomNavigation.visibility = View.GONE
+            } else if (viewModel.isDetail.value != true){
+                binding.bottomNavigation.visibility = View.VISIBLE
+            }
+        }
+        viewModel.isApprove.observe(this) {
+            if (it && viewModel.isMe.value != true) {
+                biometricPrompt.authenticate(promptInfo)
             }
         }
     }
@@ -136,6 +140,13 @@ class MainActivity : AppCompatActivity() {
         super.onNewIntent(intent)
         viewModel.isCard.observe(this) {
             if (it) {
+                RetrofitClient.api.attend().enqueue(object : Callback<Void> {
+                    override fun onResponse(call: Call<Void>, response: Response<Void>) {
+                    }
+
+                    override fun onFailure(call: Call<Void>, t: Throwable) {
+                    }
+                })
             }
         }
     }
@@ -160,6 +171,12 @@ class MainActivity : AppCompatActivity() {
 
     override fun onBackPressed() {
         super.onBackPressed()
-        viewModel.setIsNotification(false)
+        if (viewModel.isDetail.value == true) {
+            viewModel.setIsDetail(false)
+            return
+        }
+        if (viewModel.isNotification.value == true) {
+            viewModel.setIsNotification(false)
+        }
     }
 }

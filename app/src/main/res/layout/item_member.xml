@@ -29,6 +29,7 @@
         app:layout_constraintBottom_toBottomOf="@id/nameTxt"
         android:layout_marginStart="10dp"/>
     <TextView
+        android:id="@+id/todayWork"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="오늘 근무 시간 20h 30m"
@@ -40,6 +41,7 @@
         android:layout_marginTop="8dp"
         android:layout_marginBottom="11dp"/>
     <TextView
+        android:id="@+id/state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:textSize="25sp"

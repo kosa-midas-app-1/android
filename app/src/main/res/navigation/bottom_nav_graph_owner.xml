@@ -26,7 +26,11 @@
         android:id="@+id/manageFragment"
         android:name="com.example.jabda.presentation.manage.ManageFragment"
         android:label="ManageFragment"
-        tools:layout="@layout/fragment_manage"/>
+        tools:layout="@layout/fragment_manage">
+        <action
+            android:id="@+id/action_manageFragment_to_detailMemberFragment"
+            app:destination="@id/detailMemberFragment" />
+    </fragment>
     <fragment
         android:id="@+id/notificationFragment"
         android:name="com.example.jabda.presentation.notification.NotificationFragment"
@@ -42,4 +46,9 @@
         android:name="com.example.jabda.presentation.pending_register.PendingRegisterFragment"
         android:label="PendingRegisterFragment"
         tools:layout="@layout/fragment_pending_register"/>
+    <fragment
+        android:id="@+id/detailMemberFragment"
+        android:name="com.example.jabda.presentation.detail_member.DetailMemberFragment"
+        android:label="DetailMemberFragment"
+        tools:layout="@layout/fragment_detail_member"/>
 </navigation>

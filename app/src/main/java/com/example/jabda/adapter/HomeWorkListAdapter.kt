@@ -18,9 +18,20 @@ class HomeWorkListAdapter(val itemList: ListWorkHomeResponse): RecyclerView.Adap
         this.itemClickListener = clickListener
     }
 
-    class ViewHolder(binding: ItemHomeworkBinding, itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: ListWorkHomeResponse.Staff) {
-
+    class ViewHolder(val binding: ItemHomeworkBinding, val itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: ListWorkHomeResponse.Staff, position: Int) {
+            binding.nameTxt.text= item.name
+            binding.positionTxt.text = item.position
+            binding.phoneTxt.text = item.phone
+            binding.emailTxt.text = item.email
+            binding.dateTxt.text = item.date
+            binding.reasonTxt.text = item.reason
+            binding.approveBtn.setOnClickListener {
+                itemClickListener.accept(position)
+            }
+            binding.rejectBtn.setOnClickListener {
+                itemClickListener.reject(position)
+            }
         }
     }
 
@@ -35,7 +46,7 @@ class HomeWorkListAdapter(val itemList: ListWorkHomeResponse): RecyclerView.Adap
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(itemList.staff[position])
+        holder.bind(itemList.staff[position], position)
     }
 
     override fun getItemCount(): Int = itemList.staff.size

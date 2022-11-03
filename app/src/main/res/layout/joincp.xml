@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/te_cp"
+        android:text="회사"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginTop="35dp"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginStart="50dp"
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:id="@+id/in_cp"
+        android:hint="회사명을 입력해주세요."
+        android:ems="15"
+        app:layout_constraintTop_toTopOf="@id/te_cp"
+        app:layout_constraintStart_toStartOf="@id/te_cp"
+        android:layout_marginTop="30dp"
+        />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:id="@+id/te_ps"
+        android:text="직급"
+        app:layout_constraintTop_toTopOf="@id/in_cp"
+        android:layout_marginTop="80dp"
+        app:layout_constraintStart_toStartOf="@id/in_cp"
+
+        />
+    <EditText
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:inputType="text"
+        android:id="@+id/in_ps"
+        android:hint="직급을 입력해주세요."
+        app:layout_constraintTop_toTopOf="@id/te_ps"
+        app:layout_constraintStart_toStartOf="@id/te_ps"
+        android:layout_marginTop="40dp"
+        />
+    <androidx.appcompat.widget.AppCompatButton
+        android:layout_width="210dp"
+        android:layout_height="50dp"
+        android:text="완료"
+        android:id="@+id/bu_com"
+        app:layout_constraintTop_toTopOf="@id/in_ps"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="485dp"
+        android:layout_marginStart="100dp"
+        />
+    
+
+</androidx.constraintlayout.widget.ConstraintLayout>

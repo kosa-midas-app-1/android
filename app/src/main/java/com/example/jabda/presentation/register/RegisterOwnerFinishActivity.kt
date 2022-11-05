@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.util.Log
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
+import com.example.jabda.JabdaApp
 import com.example.jabda.databinding.ActivityRegisterOwnerFinishBinding
 import com.example.jabda.network.request.auth.RegisterOwnerRequest
 import com.example.jabda.network.request.auth.RegisterOwnerResponse
@@ -52,9 +53,8 @@ class RegisterOwnerFinishActivity: AppCompatActivity() {
                                 response: Response<RegisterOwnerResponse>
                             ) {
                                 if(response.code() == 200) {
-
+                                    JabdaApp.prefs.data = response.body()?.accessToken
                                 }
-                                TODO("Not yet implemented")
                             }
 
                             override fun onFailure(
@@ -62,7 +62,6 @@ class RegisterOwnerFinishActivity: AppCompatActivity() {
                                 t: Throwable
                             ) {
                                 Log.d("상태",t.message.toString())
-                                TODO("Not yet implemented")
                             }
 
                         })

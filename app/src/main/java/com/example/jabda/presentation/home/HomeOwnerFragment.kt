@@ -1,6 +1,7 @@
 package com.example.jabda.presentation.home
 
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -80,7 +81,7 @@ class HomeOwnerFragment: Fragment() {
             }
 
             override fun onFailure(call: Call<HomeWorkCountResponse>, t: Throwable) {
-                TODO("Not yet implemented")
+                Log.d("안녕", "onFailure: ${t.message}")
             }
 
         })

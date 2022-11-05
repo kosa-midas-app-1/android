@@ -30,20 +30,24 @@ class NotificationFragment: Fragment() {
         if (viewModel.isOwner.value == true) {
             binding.plusBtn.visibility = View.VISIBLE
         }
-        RetrofitClient.api.listNotice().enqueue(object : Callback<NoticesResponse> {
-            override fun onResponse(
-                call: Call<NoticesResponse>,
-                response: Response<NoticesResponse>
-            ) {
-                adapter = NotificationListAdapter(response.body()!!)
-                binding.notificationList.adapter = adapter
-                binding.notificationList.layoutManager = LinearLayoutManager(context)
-            }
-
-            override fun onFailure(call: Call<NoticesResponse>, t: Throwable) {
-            }
-
-        })
+//        RetrofitClient.api.listNotice().enqueue(object : Callback<NoticesResponse> {
+//            override fun onResponse(
+//                call: Call<NoticesResponse>,
+//                response: Response<NoticesResponse>
+//            ) {
+//                adapter = NotificationListAdapter(response.body()!!)
+//                binding.notificationList.adapter = adapter
+//                binding.notificationList.layoutManager = LinearLayoutManager(context)
+//            }
+//
+//            override fun onFailure(call: Call<NoticesResponse>, t: Throwable) {
+//            }
+//
+//        })
+        val item = NoticesResponse.Notice("", Date())
+        adapter = NotificationListAdapter(NoticesResponse(listOf(item, item, item, item, item)))
+        binding.notificationList.adapter = adapter
+        binding.notificationList.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 }

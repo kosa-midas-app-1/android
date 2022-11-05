@@ -14,7 +14,7 @@ import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
 
-class PendingHomeWorkFragment: Fragment() {
+class PendingHomeWorkFragment : Fragment() {
     lateinit var binding: FragmentPendingHomeworkBinding
     lateinit var adapter: HomeWorkListAdapter
     override fun onCreateView(
@@ -23,28 +23,40 @@ class PendingHomeWorkFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentPendingHomeworkBinding.inflate(inflater, container, false)
-        RetrofitClient.api.listWorkHome().enqueue(object : Callback<ListWorkHomeResponse> {
-            override fun onResponse(
-                call: Call<ListWorkHomeResponse>,
-                response: Response<ListWorkHomeResponse>
-            ) {
-                adapter = HomeWorkListAdapter(response.body()!!)
-                adapter.setOnClickListener(object : HomeWorkListAdapter.onClickListener {
-                    override fun accept(position: Int) {
-                        RetrofitClient.api.approveHomeWork(response.body()?.staff?.get(position)?.id!!)
-                    }
-
-                    override fun reject(position: Int) {
-                        RetrofitClient.api.rejectHomeWork(response.body()?.staff?.get(position)?.id!!)
-                    }
-                })
-                binding.homeworkList.adapter = adapter
-                binding.homeworkList.layoutManager = LinearLayoutManager(context)
+//        RetrofitClient.api.listWorkHome().enqueue(object : Callback<ListWorkHomeResponse> {
+//            override fun onResponse(
+//                call: Call<ListWorkHomeResponse>,
+//                response: Response<ListWorkHomeResponse>
+//            ) {
+//                adapter = HomeWorkListAdapter(response.body()!!)
+//                adapter.setOnClickListener(object : HomeWorkListAdapter.onClickListener {
+//                    override fun accept(position: Int) {
+//                        RetrofitClient.api.approveHomeWork(response.body()?.staff?.get(position)?.id!!)
+//                    }
+//
+//                    override fun reject(position: Int) {
+//                        RetrofitClient.api.rejectHomeWork(response.body()?.staff?.get(position)?.id!!)
+//                    }
+//                })
+//                binding.homeworkList.adapter = adapter
+//                binding.homeworkList.layoutManager = LinearLayoutManager(context)
+//            }
+//
+//            override fun onFailure(call: Call<ListWorkHomeResponse>, t: Throwable) {
+//            }
+//        })
+        val item = ListWorkHomeResponse.Staff("", "", "", "", "", "", "")
+        adapter = HomeWorkListAdapter(ListWorkHomeResponse(listOf(item, item, item, item, item)))
+        adapter.setOnClickListener(object : HomeWorkListAdapter.onClickListener {
+            override fun accept(position: Int) {
             }
 
-            override fun onFailure(call: Call<ListWorkHomeResponse>, t: Throwable) {
+            override fun reject(position: Int) {
             }
+
         })
+        binding.homeworkList.adapter = adapter
+        binding.homeworkList.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 }

@@ -17,18 +17,21 @@ class MemberListAdapter(val itemList: CommuteListResponse): RecyclerView.Adapter
         this.itemClickListener = clickListener
     }
 
-    class ViewHolder(val binding: ItemMemberBinding, itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
-        fun bind(item: CommuteListResponse.Staff) {
-            binding.nameTxt.text = item.name
-            binding.positionTxt.text = item.position
-            binding.todayWork.text = "오늘 근무 시간 ${(item.endAt?.time ?: 0 - item.startAt!!.time)}"
-            binding.state.text = when(item.status) {
-                "NO_DATA" -> "첫 출근전"
-                "WORKING" -> "출근중"
-                "LEAVE_WORK" -> "퇴근"
-                "LEAVE_EARLY" ->  "조퇴"
-                "WORK_HOME" -> "재택근무중"
-                else -> "데이터 없음"
+    class ViewHolder(val binding: ItemMemberBinding, val itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
+        fun bind(item: CommuteListResponse.Staff, position: Int) {
+//            binding.nameTxt.text = item.name
+//            binding.positionTxt.text = item.position
+//            binding.todayWork.text = "오늘 근무 시간 ${(item.endAt?.time ?: 0 - item.startAt!!.time)}"
+//            binding.state.text = when(item.status) {
+//                "NO_DATA" -> "첫 출근전"
+//                "WORKING" -> "출근중"
+//                "LEAVE_WORK" -> "퇴근"
+//                "LEAVE_EARLY" ->  "조퇴"
+//                "WORK_HOME" -> "재택근무중"
+//                else -> "데이터 없음"
+//            }
+            binding.nameTxt.setOnClickListener {
+                itemClickListener.detail(position)
             }
         }
     }
@@ -44,7 +47,7 @@ class MemberListAdapter(val itemList: CommuteListResponse): RecyclerView.Adapter
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.bind(itemList.staff[position])
+        holder.bind(itemList.staff[position], position)
     }
 
     override fun getItemCount(): Int = itemList.staff.size

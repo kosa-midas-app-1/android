@@ -34,17 +34,17 @@ class HomeWorkFragment: Fragment() {
             var day : String = "${year}년 ${month}월 ${dayOfMonth}일"
             binding.date.text = day
         }
-        val call = RetrofitClient.api.requestHomeWork(HomeWorkRequest(reason = "", date = ""))
-        call.enqueue(object : Callback<Void> {
-            override fun onResponse(call: Call<Void>, response: Response<Void>) {
-                TODO("Not yet implemented")
-            }
-
-            override fun onFailure(call: Call<Void>, t: Throwable) {
-                Log.d("상태",t.message.toString())
-                TODO("Not yet implemented")
-            }
-        })
+//        val call = RetrofitClient.api.requestHomeWork(HomeWorkRequest(reason = "", date = ""))
+//        call.enqueue(object : Callback<Void> {
+//            override fun onResponse(call: Call<Void>, response: Response<Void>) {
+//                TODO("Not yet implemented")
+//            }
+//
+//            override fun onFailure(call: Call<Void>, t: Throwable) {
+//                Log.d("상태",t.message.toString())
+//                TODO("Not yet implemented")
+//            }
+//        })
         return binding.root
     }
 }

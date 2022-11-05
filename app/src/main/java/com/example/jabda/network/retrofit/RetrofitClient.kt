@@ -1,5 +1,6 @@
 package com.example.jabda.network.retrofit
 
+import com.example.jabda.JabdaApp
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.Response
@@ -7,33 +8,30 @@ import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
 import java.io.IOException
 
-class RetrofitClient {
+object RetrofitClient {
 
 
-    companion object {
-        private const val url = "3.37.129.120:8080"
-        var server: Retrofit = Retrofit.Builder()
-            .baseUrl(url)
-            .client(provideOkHttpClient(AppInterceptor()))
-            .addConverterFactory(GsonConverterFactory.create())
-            .build()
-        var api:API = server.create(API::class.java)
+    private const val url = "http://3.37.129.120:8080"
+    var server: Retrofit = Retrofit.Builder()
+        .baseUrl(url)
+            .client(provideOkHttpClient())
+        .addConverterFactory(GsonConverterFactory.create())
+        .build()
+    var api:API = server.create(API::class.java)
 
-        private fun provideOkHttpClient(interceptor: AppInterceptor): OkHttpClient
-                = OkHttpClient.Builder().run {
-            addInterceptor(interceptor)
-            build()
-        }
+    private fun provideOkHttpClient(): OkHttpClient
+            = OkHttpClient.Builder().run {
+        addInterceptor(LoginInterceptor())
+        build()
     }
 
-    class AppInterceptor : Interceptor {
+    class LoginInterceptor : Interceptor {
         @Throws(IOException::class)
-        override fun intercept(chain: Interceptor.Chain) : Response = with(chain) {
-            val newRequest = request().newBuilder()
-                .addHeader("(heaber Key)", "(heaber Value)")
-                .build()
-            proceed(newRequest)
+        override fun intercept(chain: Interceptor.Chain): Response = with(chain) {
+            val req =
+                request().newBuilder().addHeader("Authorization", "Bearer ${JabdaApp.prefs.data}")
+                    .build()
+            return proceed(req)
         }
     }
-    private val api = RetrofitClient.server.create(RetrofitClient.AppInterceptor::class.java)
 }

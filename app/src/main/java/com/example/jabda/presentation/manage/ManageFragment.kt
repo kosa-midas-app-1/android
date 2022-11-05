@@ -29,25 +29,35 @@ class ManageFragment: Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         binding = FragmentManageBinding.inflate(inflater, container, false)
-        RetrofitClient.api.commuteList().enqueue(object : Callback<CommuteListResponse> {
-            override fun onResponse(
-                call: Call<CommuteListResponse>,
-                response: Response<CommuteListResponse>
-            ) {
-                adapter = MemberListAdapter(response.body()!!)
-                adapter.setOnClickListener(object : MemberListAdapter.onClickListener{
-                    override fun detail(position: Int) {
-                        activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_manageFragment_to_detailMemberFragment)
-                        viewModel.setIsDetail(true)
-                    }
-                })
-                binding.memberList.adapter = adapter
-                binding.memberList.layoutManager = LinearLayoutManager(context)
-            }
-
-            override fun onFailure(call: Call<CommuteListResponse>, t: Throwable) {
+//        RetrofitClient.api.commuteList().enqueue(object : Callback<CommuteListResponse> {
+//            override fun onResponse(
+//                call: Call<CommuteListResponse>,
+//                response: Response<CommuteListResponse>
+//            ) {
+//                adapter = MemberListAdapter(response.body()!!)
+//                adapter.setOnClickListener(object : MemberListAdapter.onClickListener{
+//                    override fun detail(position: Int) {
+//                        activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_manageFragment_to_detailMemberFragment)
+//                        viewModel.setIsDetail(true)
+//                    }
+//                })
+//                binding.memberList.adapter = adapter
+//                binding.memberList.layoutManager = LinearLayoutManager(context)
+//            }
+//
+//            override fun onFailure(call: Call<CommuteListResponse>, t: Throwable) {
+//            }
+//        })
+        val item = CommuteListResponse.Staff("", "", "", "", "", "", Date(), Date())
+        adapter = MemberListAdapter(CommuteListResponse(listOf(item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item, item)))
+        adapter.setOnClickListener(object : MemberListAdapter.onClickListener{
+            override fun detail(position: Int) {
+                activity?.findNavController(R.id.fragment_club)?.navigate(R.id.action_manageFragment_to_detailMemberFragment)
+                viewModel.setIsDetail(true)
             }
         })
+        binding.memberList.adapter = adapter
+        binding.memberList.layoutManager = LinearLayoutManager(context)
         return binding.root
     }
 }

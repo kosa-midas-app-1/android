@@ -20,18 +20,18 @@ class HomeWorkListAdapter(val itemList: ListWorkHomeResponse): RecyclerView.Adap
 
     class ViewHolder(val binding: ItemHomeworkBinding, val itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: ListWorkHomeResponse.Staff, position: Int) {
-            binding.nameTxt.text= item.name
-            binding.positionTxt.text = item.position
-            binding.phoneTxt.text = item.phone
-            binding.emailTxt.text = item.email
-            binding.dateTxt.text = item.date
-            binding.reasonTxt.text = item.reason
-            binding.approveBtn.setOnClickListener {
-                itemClickListener.accept(position)
-            }
-            binding.rejectBtn.setOnClickListener {
-                itemClickListener.reject(position)
-            }
+//            binding.nameTxt.text= item.name
+//            binding.positionTxt.text = item.position
+//            binding.phoneTxt.text = item.phone
+//            binding.emailTxt.text = item.email
+//            binding.dateTxt.text = item.date
+//            binding.reasonTxt.text = item.reason
+//            binding.approveBtn.setOnClickListener {
+//                itemClickListener.accept(position)
+//            }
+//            binding.rejectBtn.setOnClickListener {
+//                itemClickListener.reject(position)
+//            }
         }
     }
 

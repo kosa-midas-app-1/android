@@ -5,6 +5,8 @@ import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import com.example.jabda.databinding.ActivityRegisterFinishBinding
+import com.example.jabda.network.request.auth.RegisterRequest
+import com.example.jabda.network.retrofit.RetrofitClient
 import com.example.jabda.presentation.main.MainActivity
 import com.example.jabda.presentation.main.MainOwnerActivity
 
@@ -26,6 +28,9 @@ class RegisterFinishActivity: AppCompatActivity() {
                     val cp: String = binding.inCp.text.toString() //회사명 저장
                     val name: String = intent.getStringExtra("name") ?: "" //이름 저장
                     val email: String = intent.getStringExtra("email") ?: "" // 메일 저장
+                    val password = intent.getStringExtra("password") ?: ""
+                    val ph = intent.getStringExtra("Phone number") ?: ""
+                    RetrofitClient.api.register(RegisterRequest(email, password, ph, name, "", ps))
                     startActivity(
                         Intent(
                             this,

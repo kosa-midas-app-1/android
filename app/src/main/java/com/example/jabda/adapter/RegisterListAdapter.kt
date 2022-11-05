@@ -20,12 +20,12 @@ class RegisterListAdapter(val itemList: JoinListResponse): RecyclerView.Adapter<
 
     class ViewHolder(val binding: ItemRegisterBinding, val  itemClickListener: onClickListener): RecyclerView.ViewHolder(binding.root) {
         fun bind(item: JoinListResponse.request, position: Int) {
-            binding.approveBtn.setOnClickListener {
-                itemClickListener.accept(position)
-            }
-            binding.rejectBtn.setOnClickListener {
-                itemClickListener.reject(position)
-            }
+//            binding.approveBtn.setOnClickListener {
+//                itemClickListener.accept(position)
+//            }
+//            binding.rejectBtn.setOnClickListener {
+//                itemClickListener.reject(position)
+//            }
         }
     }
 

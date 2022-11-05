@@ -25,18 +25,20 @@ class HomeFragment: Fragment() {
     ): View? {
         binding = FragmentHomeBinding.inflate(inflater, container, false)
         viewModel.setIsCard(false)
-        RetrofitClient.api.myWorkTimeWeek().enqueue(object : Callback<MyWorkTimeWeekResponse> {
-            override fun onResponse(
-                call: Call<MyWorkTimeWeekResponse>,
-                response: Response<MyWorkTimeWeekResponse>
-            ) {
-                binding.weekTimeProgress.progress = (response.body()?.workCnt ?: 0 * 2.5).toInt()
-                binding.weekTimeTxt.text = "40시간/${response.body()?.workCnt}시간"
-            }
-
-            override fun onFailure(call: Call<MyWorkTimeWeekResponse>, t: Throwable) {
-            }
-        })
+//        RetrofitClient.api.myWorkTimeWeek().enqueue(object : Callback<MyWorkTimeWeekResponse> {
+//            override fun onResponse(
+//                call: Call<MyWorkTimeWeekResponse>,
+//                response: Response<MyWorkTimeWeekResponse>
+//            ) {
+//                binding.weekTimeProgress.progress = (response.body()?.workCnt ?: 0 * 2.5).toInt()
+//                binding.weekTimeTxt.text = "40시간/${response.body()?.workCnt}시간"
+//            }
+//
+//            override fun onFailure(call: Call<MyWorkTimeWeekResponse>, t: Throwable) {
+//            }
+//        })
+        binding.weekTimeProgress.progress = (20 * 2.5).toInt()
+        binding.weekTimeTxt.text = "40시간/${20}시간"
         RetrofitClient.api.recentNotice().enqueue(object : Callback<RecentNoticeResponse> {
             override fun onResponse(
                 call: Call<RecentNoticeResponse>,
